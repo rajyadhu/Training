@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Side bar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>Investo</h2>
+        </div>
+        <nav class="menu">
+            <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="#"><i class="fas fa-box"></i> Inventory</a>
+            <a href="#"><i class="fas fa-compass"></i> Tracking</a>
+            <a href="#"><i class="fas fa-shopping-cart"></i> Orders</a>
+            <a href="#"><i class="fas fa-chart-line"></i> Report Analytics</a>
+            <a href="#"><i class="fas fa-user-lock"></i> User Authentication</a>
+            <a href="#"><i class="fas fa-cog"></i> Setting</a>
+        </nav>        
+    </aside>
+    <!-- main section -->
+    <main>
+        <!-- header section -->
+        <header class="main-header">
+            <h4>Orders</h4>
+            <div class="profile-section">
+                <select name="profile">
+                    <option value="Braava-Shop">Braava shop</option>
+                </select>
+                <img class="notification-icon" src="notification_icon.png">
+                <img clas="profile-pic" src="profile.jpg">
+            </div>
+        </header>
+        <!-- path section -->
+        <div id="path">
+            <span>Home / Orders</span>
+        </div>
+        <!-- order summary container -->
+        <div class="container">
+            <div class="order-summary">
+                <h3>Order summary</h3>
+                <button><i class="fas fa-plus"></i> Add product</button>
+            </div>
+            
+            <section class="summary">
+                <div class="summary-item" id="total-order">
+                    <h3>Total Order</h3>
+                    <div class="summary-details">
+                        <p>Total 560</p>
+                        <p>Last week</p>
+                    </div>
+                </div>
+                <div class="summary-item" id="completed-order">
+                    <h3>Completed Order</h3>
+                    <div class="summary-details">
+                        <p>Total 430</p>
+                        <p>Last week</p>
+                    </div>
+                </div>
+                <div class="summary-item" id="in-process-order">
+                    <h3>In Process Order</h3>
+                    <div class="summary-details">
+                        <p>Total 160</p>
+                        <p>Last week</p>
+                    </div>
+                </div>
+            </section>
+            <!-- Table -->
+            <section class="order-table">
+                <header class="=order-table-header">
+                    <h4>Order items</h4>
+                </header>
+
+                <div class="order-editing">
+                    <div class="search-container">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search"/>
+                    </div>
+                    <div class="order-editing-buttons">
+                        <button class="filterbutton"><i class="fas fa-filter"></i> Filter</button>
+                        <button class="filterbutton"><i class="fas fa-calendar-alt"></i> Date</button>
+                        <button class="filterbutton" id="export-button"><i class="fas fa-file-export"></i> Export</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="myCheckbox">
+                            </th>
+                            <th id="order-colomn">Order</th>
+                            <th>Customers</th>
+                            <th>Tracking Id</th>
+                            <th class="order-date">Order Date</th>
+                            <th>Quantity</th>
+                            <th>Location</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>#1002</td>
+                            <td>Arlene McCoy</td>
+                            <td>#TS121321</td>
+                            <td class="order-date">Today - 4:20 pm</td>
+                            <td>20</td>
+                            <td>Sylhed, Bondor</td>
+                            <td>$500.00</td>
+                            <td><span class="status completed">&bull; Completed</span></td>
+                            <td><i class="fas fa-ellipsis-h"></i></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>#1002</td>
+                            <td>Floyd Miles</td>
+                            <td>#TS121321</td>
+                            <td class="order-date">Today - 4:20 pm</td>
+                            <td>24</td>
+                            <td>Sylhed, Bondor</td>
+                            <td>$500.00</td>
+                            <td><span class="status in-process">&bull; In Process</span></td>
+                            <td><i class="fas fa-ellipsis-h"></i></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>#1002</td>
+                            <td>Ralph Edwards</td>
+                            <td>#TS121321</td>
+                            <td class="order-date">Today - 4:20 pm</td>
+                            <td>12</td>
+                            <td>Sylhed, Bondor</td>
+                            <td>$500.00</td>
+                            <td><span class="status pending">&bull; Pending</span></td>
+                            <td><i class="fas fa-ellipsis-h"></i></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>#1002</td>
+                            <td>Brooklyn Simmons</td>
+                            <td>#TS121321</td>
+                            <td class="order-date">Today - 4:20 pm</td>
+                            <td>15</td>
+                            <td>Sylhed, Bondor</td>
+                            <td>$500.00</td>
+                            <td><span class="status completed">&bull; Completed</span></td>
+                            <td><i class="fas fa-ellipsis-h"></i></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>#1002</td>
+                            <td>Dianne Russell</td>
+                            <td>#TS121321</td>
+                            <td class="order-date">Today - 4:20 pm</td>
+                            <td>20</td>
+                            <td>Sylhed, Bondor</td>
+                            <td>$500.00</td>
+                            <td><span class="status in-process">&bull; In Process</span></td>
+                            <td><i class="fas fa-ellipsis-h"></i></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>#1002</td>
+                            <td>Devon Lane</td>
+                            <td>#TS121321</td>
+                            <td class="order-date">Today - 4:20 pm</td>
+                            <td>15</td>
+                            <td>Sylhed, Bondor</td>
+                            <td>$500.00</td>
+                            <td><span class="status completed">&bull; Completed</span></td>
+                            <td><i class="fas fa-ellipsis-h"></i></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>#1002</td>
+                            <td>Courtney Henry</td>
+                            <td>#TS121321</td>
+                            <td class="order-date">Today - 4:20 pm</td>
+                            <td>15</td>
+                            <td>Sylhed, Bondor</td>
+                            <td>$500.00</td>
+                            <td><span class="status pending">&bull; Pending</span></td>
+                            <td><i class="fas fa-ellipsis-h"></i></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>#1002</td>
+                            <td>Esther Howard</td>
+                            <td>#TS121321</td>
+                            <td class="order-date">Today - 4:20 pm</td>
+                            <td>00</td>
+                            <td>Sylhed, Bondor</td>
+                            <td>$500.00</td>
+                            <td><span class="status in-process">&bull; In Process</span></td>
+                            <td><i class="fas fa-ellipsis-h"></i></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>#1002</td>
+                            <td>Jenny Wilson</td>
+                            <td>#TS121321</td>
+                            <td class="order-date">Today - 4:20 pm</td>
+                            <td>15</td>
+                            <td>Sylhed, Bondor</td>
+                            <td>$500.00</td>
+                            <td><span class="status in-process">&bull; In Process</span></td>
+                            <td><i class="fas fa-ellipsis-h"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

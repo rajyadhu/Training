@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable exercise</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Full height of the viewport */
+            margin: 0; /* Remove default margin */
+        }
+        main {
+            display: block;
+            padding: 20px;
+            flex: 1; /* Allow main to grow and take available space */
+        }
+        header h1 {
+            text-align: center;
+            font-weight: bold;
+            background-color: rgb(240, 240, 240);
+            padding: 10px;
+            margin-bottom: 0%;
+        }
+        nav {
+            display: block;
+            text-align: center;
+            background-color: gray;
+            margin-top: 0%;
+            padding: 10px;
+        }
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+        }
+        footer {
+            background-color: rgba(128, 128, 128, 0.277);
+            text-align: center;
+            padding: 1px;
+        }
+        .box {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: lightblue;
+            border: 2px solid blue;
+            padding: 20px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .inside-box {
+            width: 100px;
+            height: 40px;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            text-align: center;
+            cursor: move;
+            border-radius: 5px;
+            position: absolute; /* to allow dragging */
+        }
+        .window {
+            width: 100px;
+            height: 40px;
+            padding: 10px;
+            background-color: rgb(41, 41, 190);
+            color: white;
+            text-align: center;
+            cursor: move;
+            border-radius: 5px;
+            position: absolute; /* to allow dragging anywhere */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Display property example</h1>
+    </header>
+    <main>
+        <div class="box" id="box">
+            <div class="inside-box" id="dragBox">
+                Drag me within Box
+            </div>
+        </div>
+        <div class="window" id="dragwindow">
+            Drag me within Window
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Training Website</p>
+    </footer>
+
+    <script>
+        // Make the DIV element draggable
+        dragElement(document.getElementById("dragwindow")); // Calls the dragElement function with the draggable element
+        dragElementInsideBox(document.getElementById("dragBox"), document.getElementById("box")); // Calls the dragElementInsideBox function for the draggable box
+
+        function dragElement(elmnt) { // Defines the dragElement function
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0; // Initializes position variables for dragging
+
+            elmnt.onmousedown = dragMouseDown; // Sets the mouse down event to call dragMouseDown
+
+            function dragMouseDown(e) { // Defines the dragMouseDown function for mouse down events
+                e = e || window.event; // Ensures compatibility with older browsers
+                e.preventDefault(); // Prevents default actions like text selection
+                
+                // Get the mouse cursor position at startup:
+                pos3 = e.clientX; // Stores initial X position
+                pos4 = e.clientY; // Stores initial Y position
+                
+                document.onmouseup = closeDragElement; // Sets mouse up event to call closeDragElement
+                document.onmousemove = elementDrag; // Sets mouse move event to call elementDrag
+            }
+
+            function elementDrag(e) { // Defines the elementDrag function for mouse move events
+                e = e || window.event; // Ensures compatibility with older browsers
+                e.preventDefault(); // Prevents default actions during dragging
+                
+                // Calculate the new cursor position:
+                pos1 = pos3 - e.clientX; // Calculates change in X position
+                pos2 = pos4 - e.clientY; // Calculates change in Y position
+                
+                pos3 = e.clientX; // Updates X position for next movement calculation
+                pos4 = e.clientY; // Updates Y position for next movement calculation
+                
+                // Set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px"; // Updates top position of the element
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px"; // Updates left position of the element
+            }
+
+            function closeDragElement() { // Defines the closeDragElement function for mouse up events
+                // Stop moving when mouse button is released:
+                document.onmouseup = null; // Removes the mouse up event handler
+                document.onmousemove = null; // Removes the mouse move event handler
+            }
+        }
+
+        // Function to drag the element only within a specified container
+        function dragElementInsideBox(elmnt, container) { // Defines the dragElementInsideBox function
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0; // Initializes position variables for dragging
+            
+            elmnt.onmousedown = dragMouseDown; // Sets the mouse down event to call dragMouseDown
+
+            function dragMouseDown(e) { // Defines the dragMouseDown function for mouse down events
+                e = e || window.event; // Ensures compatibility with older browsers
+                e.preventDefault(); // Prevents default actions like text selection
+
+                // Get the mouse cursor position at startup:
+                pos3 = e.clientX; // Stores initial X position
+                pos4 = e.clientY; // Stores initial Y position
+
+                document.onmouseup = closeDragElement; // Sets mouse up event to call closeDragElement
+                document.onmousemove = elementDrag; // Sets mouse move event to call elementDrag
+            }
+
+            function elementDrag(e) { // Defines the elementDrag function for mouse move events
+                e = e || window.event; // Ensures compatibility with older browsers
+                e.preventDefault(); // Prevents default actions during dragging
+                
+                // Calculate the new cursor position:
+                pos1 = pos3 - e.clientX; // Calculates change in X position
+                pos2 = pos4 - e.clientY; // Calculates change in Y position
+                
+                pos3 = e.clientX; // Updates X position for next movement calculation
+                pos4 = e.clientY; // Updates Y position for next movement calculation
+                
+                // Calculate new position
+                var newTop = elmnt.offsetTop - pos2; // Calculates new top position
+                var newLeft = elmnt.offsetLeft - pos1; // Calculates new left position
+
+                // Check if the new position is within the boundaries of the container
+                if (newTop >= 0 && newTop <= (container.clientHeight - elmnt.clientHeight) &&
+                    newLeft >= 0 && newLeft <= (container.clientWidth - elmnt.clientWidth)) {
+                    // Set the element's new position within the box
+                    elmnt.style.top = newTop + "px"; // Updates top position of the element
+                    elmnt.style.left = newLeft + "px"; // Updates left position of the element
+                }
+            }
+
+            function closeDragElement() { // Defines the closeDragElement function for mouse up events
+                // Stop moving when mouse button is released:
+                document.onmouseup = null; // Removes the mouse up event handler
+                document.onmousemove = null; // Removes the mouse move event handler
+            }
+        }
+    </script>
+</body>
+</html>

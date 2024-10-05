@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Layout Example</title>
+    <style>
+        header h1{
+            text-align: center;
+            font-weight: bold;
+            background-color: rgb(240, 240, 240);
+            padding: 10px;
+            margin-bottom: 0%;
+        }
+        nav{
+            display: flex;      /*Used flex because that adjusts its layout depending on the screen size*/
+            justify-content: center;
+            text-align: center;
+            background-color: gray;
+            margin-top: 0%;
+            padding: 10px;
+        }
+        nav a{
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+        }
+        footer{
+            background-color: rgba(128, 128, 128, 0.277);
+            text-align: center;
+            padding: 1px;
+        }
+        main {
+            display: grid;     /* Use CSS Grid for layout */
+            grid-template-columns: 
+                repeat(                   /* Repeat a pattern for columns */
+                    auto-fill,            /* Fill the row with as many columns as fit */
+                    minmax(              /* Define min and max sizes for columns */
+                        150px,            /* Minimum column width (150 pixels) */
+                        1fr               /* Maximum width (grows to fill available space) */
+                    ));                        
+            gap: 10px;      /* Space between grid items */
+            padding: 20px;
+        }
+        .content-box {
+            background-color: lightgreen;
+            border-radius: 5px;                  /* Optional rounded corners */
+            padding: 20px;                       /* Padding inside the box */
+            text-align: center;                  /* Center text */
+        }
+        @media (max-width: 800px) {
+            main {
+                grid-template-columns: 
+                    repeat(2, 1fr); /* 2 columns for medium screens */
+            }
+        }
+        @media (max-width: 500px) {
+            main {
+                grid-template-columns: 
+                    1fr;             /* 1 column for small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Display property example</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <div class="content-box">Content Box 1</div>
+        <div class="content-box">Content Box 2</div>
+        <div class="content-box">Content Box 3</div>
+        <div class="content-box">Content Box 4</div>
+        <div class="content-box">Content Box 5</div>
+        <div class="content-box">Content Box 6</div>
+    </main>
+    <footer>
+        <p>&copy; Training Website</p>
+    </footer>
+</body>
+</html>

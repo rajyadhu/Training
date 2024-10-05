@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            background-color: rgba(128, 128, 128, 0.277);
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        footer{
+            background-color: rgba(128, 128, 128, 0.277);
+            text-align: center;
+            margin: 0;
+            padding: 1px;
+        }
+        #navbar {
+            background-color: gray; 
+            padding: 20px;
+            text-align: center;
+            margin-top: 0;
+        }
+        #navbar li {
+            display: inline;
+            padding: 20px;
+        }
+        #ord_list{
+            margin:10px 50px 10px 150px;
+        }
+        #simple_table{
+            position: absolute;
+            top: 150px;
+            right: 150px;
+        }
+        #unord_list{
+            margin-left: 150px;
+        }
+        dt{
+            font-weight: bold;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        th,td{
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML Lists and Tables</h1>
+    <ul id="navbar" >
+        <li><a href="table.html">Home</a></li>
+        <li>About</li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div id="ord_list">
+        <h2>Ordered List</h2>
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ol>
+    </div>
+    <div id="unord_list">
+        <h2>Unordered List</h2>
+        <ul>
+            <li>Bullet 1</li>
+            <li>Bullet 2</li>
+            <li>Bullet 3</li>
+        </ul>
+    </div>
+    <div id="unord_list">
+        <h2>Description List</h2>
+        <dl>
+            <dt>Term 1</dt>
+            <dd>Definition</dd>
+            <dt>Term 2</dt>
+            <dd>Definition</dd>
+        </dl>
+    </div>
+    <div id="simple_table">
+        <h2>Simple table:</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>City</th>
+                <th>Occupation</th>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>28</td>
+                <td>NY</td>
+                <td>Developer</td>
+            </tr>
+            <tr>
+                <td>Jane</td>
+                <td>34</td>
+                <td>London</td>
+                <td>Designer</td>
+            </tr>
+            <tr>
+                <td>Tom</td>
+                <td>22</td>
+                <td>Toronto</td>
+                <td>Student</td>
+            </tr>
+        </table>
+    </div>
+    <footer>
+        <p>&copy; Training Website</p>
+    </footer>
+</body>
+</html>

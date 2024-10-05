@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            background-color: rgba(128, 128, 128, 0.277);
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }#navbar {
+            background-color: gray; 
+            padding: 20px;
+            text-align: center;
+            margin-top: 0;
+        }
+        #navbar li {
+            display: inline;
+            padding: 20px;
+        }
+        #container{
+            width: 25vw;
+            border: 1px solid black;
+            padding: 10px;
+            margin: auto;
+            background-color: rgba(128, 128, 128, 0.056);
+        }
+        input, textarea{
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+        }
+        footer{
+            background-color: rgba(128, 128, 128, 0.277);
+            text-align: center;
+            padding: 1px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Form Exercise</h1>
+    <ul id="navbar" >
+        <li><a href="table.html">Home</a></li>
+        <li>About</li>
+    </ul>
+    <form style="padding: 20px;">
+        <div id="container">
+            <h2 style="text-align: center;">Contact Us </h2>
+            <label for="fname">Name:</label><br>
+            <input type="text" id="fname"><br><br>
+            <label for="femail">Email:</label><br>
+            <input type="email" id="femail"><br><br>
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" id="phone"><br><br>
+            <label for="message">Message</label><br>
+            <textarea rows="5" id="message"></textarea><br>
+            <input type="submit" name="Submit" style="width: 100%;">
+        </div>
+    </form>
+    <footer>
+        <p>&copy; Training Website</p>
+    </footer>
+</body>
+</html>

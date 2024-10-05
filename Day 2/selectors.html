@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors practice</title>
+    <style>
+        * {
+            margin: 2px 2px 2px 2px;
+            padding: 1px;
+        }
+        main {
+            display: block;
+            padding: 20px;
+        }
+        header h1{
+            text-align: center;
+            font-weight: bold;
+            background-color: rgb(240, 240, 240);
+            padding: 10px;
+            margin-bottom: 0%;
+        }
+        nav{
+            display: block;
+            text-align: center;
+            background-color: gray;
+            margin-top: 0%;
+            padding: 10px;
+        }
+        nav a{
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid lightgray;
+            background-color: rgb(245, 245, 245);
+        }
+        p{  /*type selector*/
+            font-family: 'Times New Roman', Times, serif;
+        }
+        h4{  /*type selector*/
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .class-sel-example{  /*Selector selector*/
+            background-color: yellow;
+            border: 1px solid black;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        #unique{  /*ID selector*/
+            color: red;
+        }
+        input[type="name"]{  /*attribute selector*/
+            padding: 10px;
+            border: 2px solid black;
+        }
+        div p{  /*descendant selector*/
+            letter-spacing: 1px;
+        }
+        ul > li{    /*Child selector*/
+            list-style-type: square;
+        }
+        h3 + p{     /*Adjacent sibling*/
+            color: blue;
+        }
+        h4 ~ p {       /*general sibling*/
+            color: teal;
+            font-style: italic;
+        }
+        footer{
+            background-color: rgba(128, 128, 128, 0.277);
+            text-align: center;
+            padding: 1px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSS Basic Review</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="selectors.html">Selector Practice</a>
+        </nav>
+    </header>
+    <main>
+        <div class="section" id="universal">
+            <h2>Universal Selector</h2>
+            <p>Targets all the elements in the page. This paragraph is styled with Universal selector(*),which applies to all elements</p>
+        </div>
+        <div class="section" id="type">
+            <h2>Type selector </h2>
+            <h4>Heading and paragraph</h4>
+            <p>This is an example of a paragraph styled by type selector</p>
+        </div>
+        <div class="class-sel-example" id="class">
+            <h2>Class selector </h2>
+            <h4>Heading and paragraph</h4>
+            <p>This section is styled using class selector</p>
+        </div>
+        <div class="section" id="unique">
+            <h2>ID selector </h2>
+            <h4>Heading and paragraph</h4>
+            <p>This section is styled using id selector</p>
+        </div>
+        <div class="section" id="attribute">
+            <h2>Attribute selector </h2>
+            <label for="name">Type your name:</label><br>
+            <input type="name" id="name" placeholder="type your name...">
+        </div>
+        <div class="section" id="descendant">
+            <h2>Descendant selector </h2>
+            <p>This paragraph is inside a div and styled by descendant selector (div p).</p>
+        </div>
+        <div class="section" id="child">
+            <h2>Child selector </h2>
+            <ul>
+                <li>First child item styled using child selector</li>
+                <li>Another child item in the list</li>
+            </ul>
+        </div>
+        <div class="section" id="adjacent">
+            <h2>Adjacent selector </h2>
+            <h3>This is a Heading</h3>
+            <p>This paragraph is styled as an adjacent sibling to the above Heading(h3+p).</p>
+        </div>
+        <div class="section" id="sibling">
+            <h2>General Sibling selector </h2>
+            <h4>Another heading</h4>
+            <p>This paragraph is styled as a general sibling to the above Heading(h4~p).</p>
+            <p>Another sibling paragraph styled the same way</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Training Website</p>
+    </footer>
+</body>
+</html>

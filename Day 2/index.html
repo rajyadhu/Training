@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>CSS Basic Review</title>
+    <style>
+        main{
+            display: block;
+        }
+        header h1{
+            text-align: center;
+            font-weight: bold;
+            background-color: rgb(240, 240, 240);
+            padding: 10px;
+            margin-bottom: 0%;
+        }
+        nav{
+            display: block;
+            text-align: center;
+            background-color: gray;
+            margin-top: 0%;
+            padding: 10px;
+        }
+        nav a{
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+        }
+        
+        #intro p::first-line {
+            color: blue; /* Set the first line color to blue */ /*pseudo- element*/
+            font-variant: small-caps;
+            font-size: large;
+        }
+        #intro p::first-letter{   /*  used to change effects in first letter */
+            color: red;
+            font-size: x-large;
+        }
+        #intro p::selection{
+            color: red;
+            background-color: yellow;
+        }
+        #intro{
+            background-color: rgb(245, 245, 245);
+            padding: 10px;
+            display: block;
+        }
+        #intro p{
+            font-size: 15px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            line-height: 1.5;
+            letter-spacing: 1px;
+        }
+        .content_boxes{
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+            min-width: 150px;
+        }
+        #box_1{
+            background-image: url(galaxy.jpeg);
+            color: aqua;
+            border: 2px solid blue;
+            padding: 20px;
+        }
+        #box_2{
+            background-image: url(green.jpg);
+            color: aquamarine;
+            border: 5px solid rgb(0, 138, 39);
+            padding: 30px;
+        }
+        #box_2 p{
+            color: white;
+        }
+        #box_3{
+            background-image: url(desert.jpeg);
+            color: rgb(246, 246, 0);
+            border: 10px solid rgb(255, 220, 144);
+            padding: 10px;
+        }
+        #box_3 p{
+            color: rgb(255, 166, 0);
+        }
+        #container{
+            display: flex;
+        }
+        #pseudo{
+            background-color: rgb(194, 194, 194);
+            padding: 10px;
+        }
+        .btn {
+            padding: 10px 15px;
+            background-color: lightblue;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: darkblue;
+            color: white;
+        }
+        .btn:active {
+            background-color: black;
+            color: white;
+        }
+        .btn:focus {
+            outline: 2px solid green;
+        }
+        
+        .pseudo-example::before {
+            content: "Notice: ";
+            font-weight: bold;
+            color: red;
+        }
+        .pseudo-example::after {
+            content: " THE END";
+            font-style: italic;
+            color: gray;
+        }
+        #pseudo_elem::first-line {
+            color: blue; /* Set the first line color to blue */ /*pseudo- element*/
+            font-variant: small-caps;
+            font-size: large;
+        }
+        #pseudo_elem::first-letter{   /*  used to change effects in first letter */
+            color: red;
+            font-size: x-large;
+        }
+        #pseudo_elem::selection{
+            color: red;
+            background-color: yellow;
+        }
+        footer{
+            background-color: rgba(128, 128, 128, 0.277);
+            text-align: center;
+            padding: 1px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSS Basic Review</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="selectors.html">Selector Practice</a>
+        </nav>
+    </header>
+    <main>
+        <div id="intro">
+            <h3>INTRODUCTION</h3>
+            <p>This is the introduction part. The first line is set to blue in colour using pseudo element(::first-line) and the first letter is in red and larger size done by using pseudo element (::first-letter). The letter is set to 1ps and the font family set to Verdana, Geneva, Tahoma, sans-serif. Usinf the p::selection the background-color is set to yellow and font color to red</p>
+        </div>
+        <div id="container">
+            <div class="content_boxes" id="box_1">
+                <h4>BOX 1</h4>
+                <p>In the box 1 there is a background image and the colour is aqua , border is 2px and padding is 20px.</p>
+            </div>
+            <div class="content_boxes" id="box_2">
+                <h4>BOX 2</h4>
+                <p>The box 2 have a background image, colour is aquamarine,border is 5px and padding is 30px and using #box_2 p the color of this paragraph is set to white</p>
+            </div>
+            <div class="content_boxes" id="box_3">
+                <h4>BOX 3</h4>
+                <p>he box 3 have a background image, colour is rgb(246, 246, 0),border is 10px and padding is 10px and using #box_3 p the color of this paragraph is set to  rgb(255, 166, 0)</p>
+            </div>
+        </div>
+        <div id="pseudo">
+            <h3>pseudo classes</h3>
+            <button class="btn">Hover over me!</button>
+            <p>This button changes color when you hover over it.</p>
+            <br>
+            <h3>pseudo elements</h3>
+            <p class="pseudo-example">This is a paragraph.</p>
+            <p id="pseudo_elem">This paragraph has text added before and after it using pseudo-elements.</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Training Website</p>
+    </footer>
+</body>
+</html>

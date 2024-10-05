@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display property example</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        main {
+            display: block;
+            padding: 20px;
+        }
+        header h1{
+            text-align: center;
+            font-weight: bold;
+            background-color: rgb(240, 240, 240);
+            padding: 10px;
+            margin-bottom: 0%;
+        }
+        nav{
+            display: block;
+            text-align: center;
+            background-color: gray;
+            margin-top: 0%;
+            padding: 10px;
+        }
+        nav a{
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+        }
+        footer{
+            background-color: rgba(128, 128, 128, 0.277);
+            text-align: center;
+            padding: 1px;
+        }
+        .block-example{
+            padding: 10px;
+            background-color: rgb(110, 232, 110);
+            border-radius: 10px;
+            text-align: center;
+            display: block;
+            height: 25px;
+            margin: 10px;
+        }
+        .inline-example{
+            display: inline;
+            padding: 15px;
+            background-color: lightblue;
+            border-radius: 10px;
+            text-align: center;
+            margin: 10px;
+        }
+        .inline{
+            display: flex;
+            justify-content: center;     /* Center items horizontally */
+            align-items: center;         /* Center items vertically (optional) */
+            margin-top: 30px;
+        }
+        .in-block-example{
+            display: inline-block;
+            padding: 15px;
+            background-color: rgb(246, 180, 57);
+            border-radius: 10px;
+            text-align: center;
+            margin: 10px;
+        }
+        #inline-box-p{
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Display property example</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <div >
+            <h2 class="block-example">Block Element h2 (display:block)</h2>
+            <section class="block-example">
+                Block Element inside section (display:block)
+            </section>
+            <p class="block-example">
+                Block Element inside p tag (display:block)
+            </p>
+        </div>
+        <div class="inline">
+            <strong class="inline-example">inline element strong</strong>
+            <a class="inline-example">inline element a</a>
+            <p class="inline-example">inline element p</p>
+        </div>
+        <div class="inline">
+            <strong class="in-block-example">inline block element strong</strong>
+            <a class="in-block-example">inline block element a</a>
+            <p class="in-block-example" id="inline-box-p">inline block element p</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Training Website</p>
+    </footer>
+</body>
+</html>
