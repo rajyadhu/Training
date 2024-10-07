@@ -14,9 +14,8 @@ aside{
     border-right: 1px solid rgb(206, 206, 206);
 }
 .logo{
-
-display: flex; /* Use flexbox for alignment */
-align-items: center; /* Center items vertically */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
     font-weight: bold;
     font-size: large;
     margin-bottom: 20px;
@@ -69,7 +68,6 @@ nav a:hover {
     font-size: 17px;
 }
 select{
-    align-self: flex-end;
     background-color: lightgray;
     border-radius: 5px;
     border: none;
@@ -121,6 +119,9 @@ img{
     padding: 10px;
     border: 0.5px solid  rgb(255, 255, 255);
     border-radius: 7px;
+}
+.summary-item:hover{
+    background-color: rgb(239, 238, 238);
 }
 .summary-details{
     display: flex;
@@ -198,6 +199,9 @@ table{
 .table th, .table td {
     padding: 15px 5px;
     border-bottom: 1px solid #ddd;
+}
+tr:hover{
+    background-color: rgb(246, 246, 246);
 }
 #order-colomn{
     padding-left: 5px;
