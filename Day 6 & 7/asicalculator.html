@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Simple Interest Calculator</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            width: 300px;
+            border: 1px solid;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        input{
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        input[type="submit"]{
+            background-color: rgb(20, 173, 20);
+            width: auto;
+            padding: 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <form class="container" id="interest-form">
+        <h2>Advance Simple Interest Calculator</h2>
+        <label for="principal_amount">Principal Amount:</label>
+        <input type="number" placeholder="Enter the Principal Amount" id="principal_amount">
+        <label for="principal_amount">Rate of Interest(%):</label>
+        <input type="number" placeholder="Enter the Interest Rate" id="rate_of_interest">
+        <label for="principal_amount">Time(years):</label>
+        <input type="number" placeholder="Enter time in years" id="time">
+        <input type="submit" value="Calculate Interest">
+        <div class="results"></div>
+            <p id="interestRate">Applied Interest Rate: <span id="rate"></span></p>
+            <p id="interest">Calculated Interest: </p>
+            <p id="totalAmount">Total Amount: </p>
+            <p id="additionalInfo">Additional Information: </p>
+        </div>
+    </form>
+    <script>
+        document.getElementById("interest-form").addEventListener("submit", function(event){
+            event.preventDefault();  // Prevent the form from refreshing the page
+
+            var principal = document.getElementById('principal_amount').value;
+            var time = document.getElementById('time').value;
+
+            // Check if the principal is in the correct range
+            if (principal < 500 || principal > 10000) {
+                 alert("Principal must be between $500 and $10,000.");
+                 return; // Stop further execution
+            }
+
+            let baseRate;
+            if(principal < 1000 ){
+                baseRate = 5;
+            }
+            else if (principal >= 1000 && principal <= 5000){
+                baseRate = 7;
+            }
+            else{
+                baseRate = 10;
+            }
+
+            // adding extra 2% if the time is more than 5 years
+            if(time > 5){
+                baseRate += 2;
+            }
+            
+            // calculating the interest using the formula
+            let interest = (principal * baseRate * time ) / 100;
+            let totalAmount = parseFloat(principal) + interest;
+
+            //dom manipulation
+            document.getElementById('rate').textContent = baseRate + "%";
+            document.getElementById('interest').textContent = "Calculated Interest: " + interest.toFixed(2);
+            document.getElementById('totalAmount').textContent = "Total Amount: " + totalAmount.toFixed(2);
+            document.getElementById('additionalInfo').textContent = `For ${principal}, in ${time} years, at ${baseRate}% rate, interest is ${interest.toFixed(2)}.`;
+        });
+    </script>
+</body>
+</html>
