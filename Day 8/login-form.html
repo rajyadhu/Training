@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+        }
+        #container{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 400px;
+        }
+        #loginForm{
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+        }
+        label{
+            margin-top: 20px;
+            padding: 10px 5px;
+        }
+        input{
+            padding: 5px;
+            border-radius: 5px;
+        }
+        button{
+            padding: 5px;
+            cursor: pointer;
+            width: 150px;
+            align-self: center;
+            margin-top: 30px;
+            border-radius: 5px;
+            background-color: black;
+            border: 1px solid white;
+            color: white;
+            
+        }
+        h2{
+            align-self: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main id="container">
+        <h2>Welcome Back <br> Login to your account</h2>
+        <form id="loginForm">
+            <label for="emailAddressbox">Email Address:</label>
+            <input type="email" id="emailAddressbox" name="emailAddressbox" placeholder="Enter your email" >
+
+            <label for="passwordbox">Password:</label>
+            <input type="password" id="passwordbox" name="passwordbox" placeholder="Enter your password" >
+
+            <button type="submit">Login</button>
+        </form>
+    </main>
+
+    <!-- jQuery and jQuery Validation CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+
+    <script>
+        // jQuery validation
+        $(document).ready(function () {
+            $("button").hover(function(){
+                $(this).css("background-color","gray")
+            });
+            $("#loginForm").validate({
+                rules: {
+                    emailAddressbox: {
+                        required: true,
+                        email: true
+                    },
+                    passwordbox: {
+                        required: true,
+                        minlength:6
+                    }
+                },
+                messages: {
+                    emailAddressbox: {
+                        required: "Please enter your email",
+                        email: "Please enter a valid email address"
+                    },
+                    passwordbox: {
+                        required: "Please enter your password",
+                        minlength: "Password must be at least 6 characters long"
+                    }
+                },
+                submitHandler: function (form) {
+                    alert("Login successful!");
+                    form.submit();
+
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
