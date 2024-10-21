@@ -1,0 +1,7 @@
+C:\Users\yadhu\source\repos\to-do-list\obj\Debug\to-do-list.csproj.AssemblyReference.cache
+C:\Users\yadhu\source\repos\to-do-list\obj\Debug\to-do-list.csproj.CoreCompileInputs.cache
+C:\Users\yadhu\source\repos\to-do-list\bin\Debug\to-do-list.exe.config
+C:\Users\yadhu\source\repos\to-do-list\bin\Debug\to-do-list.exe
+C:\Users\yadhu\source\repos\to-do-list\bin\Debug\to-do-list.pdb
+C:\Users\yadhu\source\repos\to-do-list\obj\Debug\to-do-list.exe
+C:\Users\yadhu\source\repos\to-do-list\obj\Debug\to-do-list.pdb
