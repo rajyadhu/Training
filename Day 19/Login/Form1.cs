@@ -25,8 +25,8 @@ namespace Login
             string password = Password_txt.Text;
             Console.WriteLine(username + " " + password);
 
-            string original_name = "Yadhu";
-            string original_password = "Yadhu@123";
+            string original_name = "admin";
+            string original_password = "admin@123";
 
             if (original_name != username)
             {
