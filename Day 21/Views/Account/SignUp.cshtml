@@ -1,0 +1,143 @@
+﻿@model Sign_up_form.Models.User
+
+<style>
+    .container {
+        display: flex;
+    }
+
+    .sign-up-form {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin-right: 20px;
+        align-items: center;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .user-grid {
+        width: 50%;
+    }
+
+        .user-grid table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .user-grid th, .user-grid td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .user-grid th {
+            background-color: #f2f2f2;
+        }
+</style>
+
+<div class="container">
+    <div class="sign-up-form">
+        <h2>Sign Up</h2>
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(m => m.UserId)
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.FirstName)
+                @Html.TextBoxFor(m => m.FirstName)
+                @Html.ValidationMessageFor(m => m.FirstName)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.LastName)
+                @Html.ValidationMessageFor(m => m.LastName)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Username)
+                @Html.TextBoxFor(m => m.Username)
+                @Html.ValidationMessageFor(m => m.Username)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Place)
+                @Html.TextBoxFor(m => m.Place)
+                @Html.ValidationMessageFor(m => m.Place)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.PhoneNo)
+                @Html.TextBoxFor(m => m.PhoneNo)
+                @Html.ValidationMessageFor(m => m.PhoneNo)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword)
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </div>
+
+            <input type="submit" value="Sign Up" />
+        }
+    </div>
+
+    <div class="user-grid">
+        <h2>Registered Users</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Place</th>
+                    <th>Phone No</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.Users != null)
+                {
+                    foreach (var user in ViewBag.Users)
+                    {
+                        if (user != null)
+                        {
+                            <tr>
+                                <td>@user.FirstName</td>
+                                <td>@user.LastName</td>
+                                <td>@user.Username</td>
+                                <td>@user.Place</td>
+                                <td>@user.PhoneNo</td>
+                                <td>
+                                    @* Edit button *@
+                                    @Html.ActionLink("Edit", "EditUser", "Account", new { username = user.Username }, null) |
+                                    @* Delete button *@
+                                    @using (Html.BeginForm("DeleteUser", "Account", new { username = user.Username }, FormMethod.Post))
+                                    {
+                                        <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this user?');" />
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6">No users found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
